@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation"
 import { Suspense } from "react"
-import { Iso } from "./iso"
+import { Logo } from "./logo"
 
 function HeaderInner() {
   const searchParams = useSearchParams()
@@ -12,7 +12,7 @@ function HeaderInner() {
 
   return (
     <header className="fixed top-0 left-0 z-100 flex w-full p-6 mix-blend-difference pointer-events-none">
-      <Iso width={44} />
+      <Logo width={44} height={44} />
       <h1 className="sr-only">Joyco 3D Lab Template</h1>
     </header>
   )
