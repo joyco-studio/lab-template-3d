@@ -1,6 +1,6 @@
 # JOYCO Lab — 3D Template
 
-Starter template for building interactive 3D web experiences with [React Three Fiber](https://docs.pmnd.rs/react-three-fiber) and [Next.js](https://nextjs.org).
+Starter template for building interactive 3D web experiences with [Three.js](https://threejs.org), [XYZ](https://hub.joyco.studio/toolbox/xyz), and [Next.js](https://nextjs.org).
 
 ## Quick Start
 
@@ -24,11 +24,8 @@ npm run dev
 - **Next.js 16** — App Router
 - **React 19** — UI
 - **Three.js** — 3D graphics
-- **React Three Fiber** — React renderer for Three.js
-- **@react-three/drei** — Useful helpers (OrbitControls, primitives, etc.)
+- **@joycostudio/xyz** — Lifecycle, state, debug, and Three.js warmup utilities
 - **Tailwind CSS 4** — Styling
-- **Zustand** — State management
-- **Leva** — Real-time parameter tweaking GUI
 - **TypeScript** — Type safety
 
 ## Scripts
@@ -61,11 +58,9 @@ app/
   page.tsx          # Home page
   globals.css       # Global styles and theme variables
 components/
-  scene.tsx         # 3D canvas with React Three Fiber
+  scene.tsx         # Three.js canvas, native OrbitControls, and XYZ teardown
   header.tsx        # Header with logo
   theme-init.tsx    # Theme initialization
-lib/
-  utils.ts          # Utility functions
 ```
 
 ## License
