@@ -26,3 +26,11 @@ Implementation complete. PortalGL 0.1.0 is installed; the canonical symbol drive
 ESLint, TypeScript, the production build, and git diff whitespace validation passed. The production server was also checked in Chrome on both WebGPU and forced WebGL2. Chrome smoke checks covered WebGPU and forced WebGL2, desktop/mobile and short-viewport framing, keyboard orbit, all theme presets, invalid-theme fallback, lab mode, hot reload, and scroll alignment. A temporary no-GPU route verified the visible fallback, then was removed. Six focused lifecycle checks in the gitignored .context directory covered early unmount, pending preparation, initialization/draw failure, reduced motion, hidden-document pause/resume, and remount ownership.
 
 Browser validation exposed shared-canvas overscan extending the document. Clipping the document-root coordinator fixes this while preserving natural scroll for actual page content. Neutral tone mapping and moderate lighting keep the off-white shader bands visible against the light theme.
+
+## PR review follow-up
+
+Check each reported issue against the installed renderer and website design-system source before changing behavior. Keep Three.js backend disposal authoritative if it already returns a Promise and releases its WebGL context. Fix standalone SVG image colors using the approved off-white, document their intended background, and verify the relevant disposal methods directly. Run focused lint, typechecking, and whitespace checks, then push the valid correction to the existing PR.
+
+Source inspection confirms Three.js 0.186.1 uses async Renderer.dispose and WebGLBackend.dispose explicitly loses its context. Findings 1 and 2 therefore require no runtime change. The website's dev-only design-system source specifies inherited foreground, primary blue, and primary-foreground off-white; standalone SVG images now explicitly use its #FCFCFC off-white for dark backgrounds, while the inline component remains currentColor.
+
+Follow-up validation passed: the installed disposal methods were executed with controlled resource doubles, confirming a Promise result, backend delegation, context loss, and listener removal. ESLint, TypeScript, and whitespace checks passed; both served standalone SVG URLs contain the explicit off-white fill. No new test suite was added for the SVG color change.

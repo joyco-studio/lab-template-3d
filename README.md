@@ -43,7 +43,7 @@ The reference for this setup is **[GLSync](https://glsync.joyco.studio)**. Track
 
 ## Changing the example
 
-- **Artwork:** `lib/brand.ts` contains the canonical full JOYCO symbol path and viewBox, shared by the header and 3D geometry. Replace these with approved artwork; refresh the public icons and SVG assets separately when the brand changes.
+- **Artwork:** `lib/brand.ts` contains the canonical full JOYCO symbol path and viewBox, shared by the header and 3D geometry. Replace these with approved artwork; refresh the public icons and SVG assets separately when the brand changes. The inline `Logo` inherits its container's color. Standalone `public/logo.svg` and `public/joyco.svg` use the website's off-white (`#FCFCFC`, `primary-foreground`) for image usage on dark backgrounds, where page text color cannot be inherited.
 - **Geometry:** `lib/scene/symbol.ts` parses the SVG into shapes, extrudes them, rotates SVG's Y-down coordinates into Three.js orientation, centers the geometry, and normalizes its width to 3 units.
 - **Material:** The same file builds a `MeshStandardNodeMaterial` using `positionLocal`, `uniform`, `smoothstep`, and `mix` from TSL. Edit `colorNode` to change the shader. Advance animation through the view's `onFrame` callback; register every disposable resource with the runtime's `Disposer`.
 - **Views:** Add a new host, scene, and distinct camera with `dom.addView`. Keep one coordinator and one renderer per runtime. For a world spanning several DOM anchors, use `addScene` and its `track` method instead.
