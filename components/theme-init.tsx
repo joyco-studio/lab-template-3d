@@ -2,10 +2,11 @@
 
 import { useSearchParams } from "next/navigation"
 import { Suspense, useEffect } from "react"
+import { resolveTheme } from "@/lib/themes"
 
 function ThemeInitInner() {
   const searchParams = useSearchParams()
-  const theme = searchParams.get("theme") ?? "dark"
+  const theme = resolveTheme(searchParams.get("theme"))
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme

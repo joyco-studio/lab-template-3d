@@ -11,9 +11,9 @@ function HeaderInner() {
   if (isLab) return null
 
   return (
-    <header className="fixed top-0 left-0 z-100 flex w-full p-6 mix-blend-difference pointer-events-none">
-      <Logo width={64} className="h-auto" aria-hidden="true" />
-      <h1 className="sr-only">Joyco 3D Lab Template</h1>
+    <header className="pointer-events-none absolute top-0 left-0 z-20 p-6 text-foreground">
+      <Logo className="h-6 w-auto" />
+      <h1 className="sr-only">JOYCO Lab — 3D Template</h1>
     </header>
   )
 }

@@ -1,25 +1,125 @@
 @import "tailwindcss";
 
-/* ── Theme variables ── */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+@custom-variant hocus (&:is(:hover, :focus-visible));
+
+@theme inline {
+  --font-sans: var(--font-public-sans);
+  --font-mono: var(--font-roboto-mono);
+  --default-font-family: var(--font-sans);
+  --default-font-family-mono: var(--font-mono);
+  --gap: 0.25rem;
+  --spacing-gap: var(--gap);
+  --radius: 0rem;
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-background: var(--background);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-destructive: var(--destructive);
+  --color-foreground: var(--foreground);
+  --color-input: var(--input);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-ring: var(--ring);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+}
+
+/* Core theme values from JOYCO Hub app/styles/theming.css. */
 :root,
 [data-theme="light"] {
-  --accent: oklch(0.9 0 0);
+  color-scheme: light;
+  --radius: 0rem;
+  --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
+  --card: oklch(0.97 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.452 0.313214 264.052);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.9 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
 }
 
 [data-theme="dark"] {
-  --accent: oklch(0.2768 0 0);
+  color-scheme: dark;
+  --background: oklch(0.1684 0 0);
   --foreground: oklch(0.985 0 0);
+  --card: oklch(0.2046 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.452 0.313214 264.052);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.2134 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.2768 0 0);
+  --accent-foreground: oklch(0.8975 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(0.285 0 0);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
 }
 
 [data-theme="radio"] {
-  --accent: oklch(0.895 0.035 250);
+  color-scheme: light;
+  --primary: oklch(0.6817 0.2104 36.32);
+  --primary-foreground: oklch(0.145 0 0);
+  --ring: oklch(0.65 0.2 45);
+  --background: oklch(0.98 0.025 250);
   --foreground: oklch(0.145 0.025 250);
+  --card: oklch(0.925 0.025 250);
+  --card-foreground: oklch(0.145 0.025 250);
+  --popover: oklch(0.96 0.025 250);
+  --popover-foreground: oklch(0.145 0.025 250);
+  --secondary: oklch(0.945 0.025 250);
+  --secondary-foreground: oklch(0.205 0.025 250);
+  --muted: oklch(0.94 0.025 250);
+  --muted-foreground: oklch(0.5 0.025 250);
+  --accent: oklch(0.895 0.035 250);
+  --accent-foreground: oklch(0.205 0.025 250);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.875 0.025 250);
+  --input: oklch(0.875 0.025 250);
 }
 
 [data-theme="terminal"] {
-  --accent: oklch(0.2 0.03 140);
+  color-scheme: dark;
+  --background: oklch(0.08 0.01 140);
   --foreground: oklch(0.85 0.18 145);
+  --card: oklch(0.12 0.015 140);
+  --card-foreground: oklch(0.85 0.18 145);
+  --popover: oklch(0.12 0.015 140);
+  --popover-foreground: oklch(0.85 0.18 145);
+  --primary: oklch(0.7 0.2 145);
+  --primary-foreground: oklch(0.08 0.01 140);
+  --secondary: oklch(0.15 0.02 140);
+  --secondary-foreground: oklch(0.85 0.18 145);
+  --muted: oklch(0.14 0.018 140);
+  --muted-foreground: oklch(0.6 0.12 145);
+  --accent: oklch(0.2 0.03 140);
+  --accent-foreground: oklch(0.85 0.18 145);
+  --destructive: oklch(0.6 0.2 25);
+  --border: oklch(0.85 0.18 145 / 15%);
+  --input: oklch(0.85 0.18 145 / 20%);
+  --ring: oklch(0.7 0.2 145);
 }
 
 /* ── Scrollbar ── */
@@ -106,21 +206,21 @@ code::-webkit-scrollbar-thumb:hover {
   }
 }
 
-/* ── Base ── */
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #1f2020;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+@layer base {
+  :root {
+    font-family: var(--font-public-sans), Arial, sans-serif;
+    color: var(--foreground);
+    background: var(--background);
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  min-height: 100dvh;
+  body {
+    margin: 0;
+    min-height: 100dvh;
+  }
+
+  canvas { display: block; }
 }

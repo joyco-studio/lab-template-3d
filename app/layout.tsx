@@ -1,10 +1,12 @@
 import type { Metadata } from "next"
 import { ThemeInit } from "@/components/theme-init"
+import { publicSans, robotoMono } from "@/lib/fonts"
+import { THEME_BOOT_SCRIPT } from "@/lib/themes"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Joyco 3D Lab Template",
-  description: "Joyco 3D Lab Template",
+  title: "JOYCO Lab — 3D Template",
+  description: "A JOYCO starter for DOM-aligned Three.js views with TSL, WebGPU, and PortalGL.",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -21,11 +23,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" data-theme="dark">
+    <html
+      lang="en"
+      data-theme="dark"
+      className={`${publicSans.variable} ${robotoMono.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var t=new URLSearchParams(window.location.search).get('theme')||'dark';document.documentElement.dataset.theme=t})()`,
+            __html: THEME_BOOT_SCRIPT,
           }}
         />
       </head>
